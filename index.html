@@ -7,25 +7,26 @@
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="5000年の叡智、ヴェーダ占星術（ジョーティシュ）で本格無料鑑定。出生ホロスコープ・今日の運勢・相性占い。27ナクシャトラ、ダシャー周期を詳細分析。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Kiwi+Maru:wght@400;500&family=Zen+Maru+Gothic:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --ink:     #2a1a1f;
-  --surface: #3a2028;
-  --card:    #fff0f3;
-  --raised:  #fde8ed;
-  --border:  #f0c0cc;
-  --gold:    #c0607a;
-  --gold2:   #e8304a;
-  --gold3:   #9a3048;
-  --amber:   #d4783a;
-  --teal:    #c06890;
-  --lilac:   #d090b0;
-  --rose:    #e06080;
-  --text:    #3a1828;
-  --dim:     #8a5060;
-  --faint:   #c090a0;
-  --cream:   #fff8f9;
+  /* ムーンアンドサン工房 パステルトークン（ナクシャトラ図鑑と共通）*/
+  --ink:     #6B5B5E;
+  --surface: #8a7478;
+  --card:    #FFF3F0;   /* 淡いコーラルの面 */
+  --raised:  #FFFFFF;   /* カード内の白い小カード */
+  --border:  #F2E4E6;
+  --gold:    #D27A88;   /* 見出し・アクセント（コーラル） */
+  --gold2:   #E08E9A;
+  --gold3:   #A8646F;
+  --amber:   #F4BE98;
+  --teal:    #D9A3C4;
+  --lilac:   #C9B6E4;   /* ラベンダーの差し色 */
+  --rose:    #F8A8B0;   /* アシュヴィニーのテーマカラー */
+  --text:    #6B5B5E;   /* 本文は真っ黒を使わない */
+  --dim:     #8F7B7F;
+  --faint:   #B5A3A7;
+  --cream:   #FFFDFB;
   --r: 0.75rem;
 }
 *{margin:0;padding:0;box-sizing:border-box}
@@ -33,9 +34,10 @@ html{scroll-behavior:smooth}
 body{
   background:var(--cream);
   color:var(--text);
-  font-family:'Noto Sans JP',sans-serif;
-  font-weight:300;
-  line-height:1.7;
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-weight:400;
+  line-height:1.95;
+  letter-spacing:.04em;
   overflow-x:hidden;
   cursor:default;
 }
@@ -62,26 +64,27 @@ nav{
   height:56px;
   display:flex;align-items:center;justify-content:space-between;
   padding:0 1.5rem;
-  box-shadow:0 2px 20px rgba(192,96,122,.12);
+  box-shadow:0 2px 20px rgba(216,150,160,.12);
 }
 .nav-brand{
-  font-family:'Cormorant Garamond',serif;
+  font-family:'Zen Maru Gothic',sans-serif;
   font-size:1.15rem;font-weight:700;
   color:var(--gold);letter-spacing:.08em;
   text-decoration:none;display:flex;align-items:center;gap:.5rem;
 }
-.nav-brand span{font-size:.7rem;color:var(--dim);letter-spacing:.2em;text-transform:uppercase;font-family:'Noto Sans JP',sans-serif;font-weight:300}
+.nav-brand span{font-size:.7rem;color:var(--dim);letter-spacing:.2em;text-transform:uppercase;font-family:'Zen Maru Gothic',sans-serif;font-weight:400}
 .nav-tabs{display:flex;gap:.25rem}
 .tab-btn{
   background:none;border:none;
-  font-family:'Noto Sans JP',sans-serif;font-size:.75rem;
+  font-family:'Zen Maru Gothic',sans-serif;font-size:.75rem;
   color:var(--dim);letter-spacing:.06em;
   padding:.4rem .9rem;border-radius:.5rem;
   cursor:pointer;transition:all .2s;
   white-space:nowrap;
 }
-.tab-btn:hover{color:var(--gold);background:rgba(192,96,122,.08)}
-.tab-btn.active{color:var(--gold);background:rgba(192,96,122,.12)}
+.tab-btn:hover{color:var(--gold);background:rgba(216,150,160,.08)}
+a.tab-btn{text-decoration:none;display:inline-block}
+.tab-btn.active{color:var(--gold);background:rgba(216,150,160,.12)}
 
 /* ── AD STRIP ── */
 .ad-strip{
@@ -94,8 +97,8 @@ nav{
 .ad-strip-label{font-size:.6rem;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}
 .ad-slot-leaderboard{
   flex:1;max-width:728px;min-height:46px;
-  background:rgba(240,192,204,.15);
-  border:1px dashed rgba(240,192,204,.6);
+  background:rgba(242,214,218,.15);
+  border:1px dashed rgba(242,214,218,.6);
   border-radius:4px;
   display:flex;align-items:center;justify-content:center;
   font-size:.62rem;color:var(--faint);letter-spacing:.08em;
@@ -119,20 +122,20 @@ nav{
   transform:translate(-50%,-50%);
   width:520px;height:520px;
   background-image:
-    radial-gradient(circle at center, transparent 30%, rgba(192,96,122,.03) 31%, transparent 32%),
-    radial-gradient(circle at center, transparent 45%, rgba(192,96,122,.03) 46%, transparent 47%);
+    radial-gradient(circle at center, transparent 30%, rgba(216,150,160,.03) 31%, transparent 32%),
+    radial-gradient(circle at center, transparent 45%, rgba(216,150,160,.03) 46%, transparent 47%);
   border-radius:50%;
   pointer-events:none;
 }
 .hero-kicker{
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:.95rem;
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-size:.95rem;
   color:#fff;letter-spacing:.35em;text-transform:uppercase;
   margin-bottom:1.2rem;
   text-shadow:0 1px 8px rgba(160,60,80,.5);
 }
 .hero h1{
-  font-family:'Philosopher',serif;
+  font-family:'Kiwi Maru',serif;
   font-size:clamp(2.2rem,5.5vw,4rem);
   font-weight:700;line-height:1.1;
   background:linear-gradient(160deg,#ffd0e0 0%,#ffb0c8 45%,#ffd0a0 100%);
@@ -141,7 +144,7 @@ nav{
   filter:drop-shadow(0 2px 8px rgba(160,60,80,.4));
 }
 .hero-sub{
-  font-family:'Cormorant Garamond',serif;
+  font-family:'Zen Maru Gothic',sans-serif;
   font-size:1.2rem;color:rgba(255,255,255,.92);
   max-width:520px;margin:0 auto 2rem;line-height:1.85;
   text-shadow:0 1px 6px rgba(120,40,60,.4);
@@ -166,49 +169,50 @@ nav{
   text-align:center;
   overflow:hidden;
   background:
-    linear-gradient(160deg,rgba(60,15,35,.5) 0%,rgba(40,8,25,.42) 50%,rgba(60,20,15,.46) 100%),
+    linear-gradient(180deg,rgba(255,233,227,.55) 0%,rgba(255,246,236,.5) 55%,rgba(243,236,250,.6) 100%),
     url('hero.png') center center / cover no-repeat;
-  min-height:320px;
+  min-height:360px;
 }
 .hero::before{
   content:'';
   position:absolute;inset:0;
-  background:radial-gradient(ellipse at center,rgba(0,0,0,.08) 0%,rgba(0,0,0,.38) 100%);
+  background:radial-gradient(ellipse at center,rgba(255,253,251,.72) 0%,rgba(255,253,251,.38) 55%,rgba(255,253,251,.12) 100%);
   pointer-events:none;
 }
 .hero-kicker{
   position:relative;
-  font-family:'Cormorant Garamond',serif;
-  font-style:italic;font-size:.95rem;
-  color:rgba(255,220,235,1);letter-spacing:.35em;text-transform:uppercase;
-  margin-bottom:1.2rem;
-  text-shadow:0 1px 12px rgba(0,0,0,.8),0 0 30px rgba(0,0,0,.6);
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-size:.95rem;
+  color:var(--dim);letter-spacing:.3em;
+  display:inline-block;background:rgba(255,255,255,.85);
+  padding:.3rem 1.1rem;border-radius:999px;
+  box-shadow:0 6px 24px rgba(216,168,176,.18);
+  margin-bottom:1.4rem;
 }
 .hero h1{
   position:relative;
-  font-family:'Philosopher',serif;
+  font-family:'Kiwi Maru',serif;
   font-size:clamp(2rem,5.5vw,4rem);
-  font-weight:700;line-height:1.15;
-  color:#fff;
-  -webkit-text-fill-color:#fff;
-  margin-bottom:1rem;
-  text-shadow:0 2px 20px rgba(0,0,0,.9),0 0 40px rgba(0,0,0,.7),0 4px 8px rgba(0,0,0,.6);
+  font-weight:500;line-height:1.35;
+  color:var(--ink);
+  -webkit-text-fill-color:var(--ink);
+  margin-bottom:1.1rem;
+  text-shadow:0 0 18px rgba(255,255,255,.95),0 0 36px rgba(255,255,255,.8);
 }
 .hero-sub{
   position:relative;
-  font-family:'Cormorant Garamond',serif;
-  font-size:1.15rem;color:rgba(255,228,235,.96);
-  max-width:520px;margin:0 auto 2rem;line-height:1.85;
-  text-shadow:0 1px 10px rgba(0,0,0,.8),0 2px 4px rgba(0,0,0,.6);
+  font-family:'Zen Maru Gothic',sans-serif;
+  font-size:1rem;color:var(--ink);
+  max-width:520px;margin:0 auto 1.8rem;line-height:2;
+  text-shadow:0 0 12px rgba(255,255,255,.95),0 0 24px rgba(255,255,255,.85);
 }
 .hero-pills{position:relative;display:flex;flex-wrap:wrap;gap:.5rem;justify-content:center}
 .pill{
   font-size:.72rem;letter-spacing:.08em;
-  color:rgba(255,205,220,.9);
-  padding:.1rem 0;cursor:default;
-  text-shadow:0 1px 4px rgba(0,0,0,.6);
+  color:var(--gold3);background:rgba(255,255,255,.8);
+  padding:.15rem .8rem;border-radius:999px;cursor:default;
 }
-.pill-sep{font-size:.72rem;color:rgba(255,180,200,.4);padding:0 .2rem}
+.pill-sep{display:none}
 .main-tabs{
   position:relative;z-index:1;
   display:flex;border-bottom:2px solid var(--border);
@@ -220,7 +224,7 @@ nav{
 }
 .main-tab{
   background:none;border:none;border-bottom:2px solid transparent;
-  font-family:'Noto Sans JP',sans-serif;font-size:.82rem;
+  font-family:'Zen Maru Gothic',sans-serif;font-size:.82rem;
   color:var(--dim);letter-spacing:.06em;
   padding:.85rem 1.2rem;
   cursor:pointer;transition:all .2s;
@@ -234,16 +238,16 @@ nav{
 /* ── CONTAINER ── */
 .container{
   max-width:960px;margin:0 auto;
-  padding:2rem 1.5rem;
+  padding:2.8rem 1.5rem;
   position:relative;z-index:1;
 }
-.layout{display:grid;grid-template-columns:1fr 200px;gap:1.5rem;align-items:start}
+.layout{display:block;max-width:760px;margin:0 auto}
 
 /* ── SIDEBAR ── */
 .sidebar{position:sticky;top:70px;display:flex;flex-direction:column;gap:1rem}
 .ad-sidebar-slot{
-  background:rgba(240,192,204,.12);
-  border:1px dashed rgba(240,192,204,.5);
+  background:rgba(242,214,218,.12);
+  border:1px dashed rgba(242,214,218,.5);
   border-radius:8px;padding:.5rem;
   min-height:250px;
   display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;
@@ -256,7 +260,7 @@ nav{
   overflow:hidden;
 }
 .aff-header{
-  background:linear-gradient(135deg,rgba(192,96,122,.12),rgba(212,120,58,.08));
+  background:linear-gradient(135deg,rgba(216,150,160,.12),rgba(212,120,58,.08));
   padding:.7rem 1rem;
   font-size:.65rem;letter-spacing:.12em;text-transform:uppercase;
   color:var(--gold);
@@ -264,11 +268,11 @@ nav{
 }
 .aff-item{
   padding:.75rem 1rem;
-  border-bottom:1px solid rgba(240,192,204,.4);
+  border-bottom:1px solid rgba(242,214,218,.4);
   text-decoration:none;display:block;
   transition:background .15s;
 }
-.aff-item:hover{background:rgba(192,96,122,.04)}
+.aff-item:hover{background:rgba(216,150,160,.04)}
 .aff-item:last-child{border-bottom:none}
 .aff-name{font-size:.75rem;color:var(--text);margin-bottom:.2rem}
 .aff-desc{font-size:.65rem;color:var(--dim);line-height:1.5}
@@ -282,31 +286,31 @@ nav{
 .card{
   background:var(--card);
   border:1px solid var(--border);
-  border-radius:14px;
-  padding:2rem;
+  border-radius:28px;
+  padding:2.4rem 2.2rem;
   position:relative;overflow:hidden;
-  margin-bottom:1.5rem;
-  box-shadow:0 2px 16px rgba(192,96,122,.08);
+  margin-bottom:2.2rem;
+  box-shadow:0 2px 16px rgba(216,150,160,.08);
 }
 .card::before{
   content:'';position:absolute;top:0;left:0;right:0;height:3px;
-  background:var(--top-bar, linear-gradient(90deg,#e05070,#d4783a));
+  background:var(--top-bar, linear-gradient(90deg,var(--rose),var(--amber)));
 }
 /* インド風コーナー装飾 */
 .card::after{
   content:'✿';
   position:absolute;top:.5rem;right:.8rem;
-  font-size:.9rem;color:rgba(192,96,122,.2);
+  font-size:.9rem;color:rgba(216,150,160,.2);
   pointer-events:none;
 }
 .card-title{
-  font-family:'Cormorant Garamond',serif;
+  font-family:'Zen Maru Gothic',sans-serif;
   font-size:1.1rem;font-weight:700;
   color:var(--gold);margin-bottom:.35rem;
 }
 .card-hint{
   font-size:.78rem;color:var(--dim);
-  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-family:'Zen Maru Gothic',sans-serif;
   margin-bottom:1.5rem;
 }
 
@@ -317,26 +321,26 @@ label{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;color:var(-
 input,select{
   background:rgba(255,255,255,.8);
   border:1.5px solid var(--border);
-  border-radius:9px;padding:.65rem .9rem;
+  border-radius:14px;padding:.7rem 1rem;
   color:var(--text);font-size:.88rem;
-  font-family:'Noto Sans JP',sans-serif;
+  font-family:'Zen Maru Gothic',sans-serif;
   transition:border-color .2s,box-shadow .2s;outline:none;
 }
 input:focus,select:focus{
   border-color:var(--gold);
-  box-shadow:0 0 0 3px rgba(192,96,122,.12);
+  box-shadow:0 0 0 3px rgba(216,150,160,.12);
 }
 select option{background:#fff}
 
 .btn{
   width:100%;margin-top:1.2rem;padding:.95rem;
-  background:linear-gradient(135deg,#c0607a,#e05070,#d4783a);
-  border:none;border-radius:10px;
+  background:linear-gradient(135deg,#E8909E,#EFA2A4,#F0B08E);
+  border:none;border-radius:999px;
   color:#fff;
-  font-family:'Philosopher',serif;font-size:.95rem;font-weight:700;
+  font-family:'Kiwi Maru',serif;font-size:.95rem;font-weight:700;
   letter-spacing:.06em;cursor:pointer;
   transition:opacity .2s,transform .1s;overflow:hidden;position:relative;
-  box-shadow:0 4px 20px rgba(192,96,122,.35);
+  box-shadow:0 4px 20px rgba(216,150,160,.35);
 }
 .btn::after{
   content:'';position:absolute;inset:0;
@@ -352,16 +356,16 @@ select option{background:#fff}
 .rcard{
   background:var(--raised);
   border:1px solid var(--border);
-  border-radius:12px;padding:1.3rem;
+  border-radius:18px;padding:1.3rem;
   position:relative;overflow:hidden;
   animation:fadeUp .45s ease both;
-  box-shadow:0 2px 12px rgba(192,96,122,.07);
+  box-shadow:0 2px 12px rgba(216,150,160,.07);
 }
 @keyframes fadeUp{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 .rcard-icon{font-size:1.6rem;margin-bottom:.5rem}
 .rcard-lbl{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--lilac);margin-bottom:.25rem}
-.rcard-val{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--gold2);margin-bottom:.4rem}
-.rcard-txt{font-size:.76rem;color:var(--dim);line-height:1.65;font-family:'Cormorant Garamond',serif}
+.rcard-val{font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;font-weight:700;color:var(--gold2);margin-bottom:.4rem}
+.rcard-txt{font-size:.76rem;color:var(--dim);line-height:1.65;font-family:'Zen Maru Gothic',sans-serif}
 .rcard-bar{position:absolute;bottom:0;left:0;right:0;height:2px}
 
 /* ── TABLE ── */
@@ -370,14 +374,14 @@ select option{background:#fff}
   text-align:left;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;
   color:var(--faint);padding:.5rem .7rem;border-bottom:1px solid var(--border);
 }
-.tbl td{padding:.6rem .7rem;border-bottom:1px solid rgba(240,192,204,.4);color:var(--dim)}
+.tbl td{padding:.6rem .7rem;border-bottom:1px solid rgba(242,214,218,.4);color:var(--dim)}
 .tbl tr.cur td{color:var(--gold)}
 .tbl tr.cur td:first-child::before{content:'▶ ';color:var(--rose)}
 
 /* ── AD MID ── */
 .ad-mid{
-  background:rgba(240,192,204,.12);
-  border:1px dashed rgba(240,192,204,.5);
+  background:rgba(242,214,218,.12);
+  border:1px dashed rgba(242,214,218,.5);
   border-radius:7px;min-height:90px;
   display:flex;align-items:center;justify-content:center;
   font-size:.62rem;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;
@@ -390,11 +394,11 @@ select option{background:#fff}
   background:var(--raised);border:1px solid var(--border);
   border-radius:12px;padding:1.2rem;text-align:center;
   animation:fadeUp .4s ease both;
-  box-shadow:0 2px 12px rgba(192,96,122,.06);
+  box-shadow:0 2px 12px rgba(216,150,160,.06);
 }
 .daily-planet{font-size:2rem;margin-bottom:.5rem}
-.daily-name{font-family:'Cormorant Garamond',serif;font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:.4rem}
-.daily-score{font-family:'Philosopher',serif;font-size:1.6rem;font-weight:700;margin-bottom:.35rem;}
+.daily-name{font-family:'Zen Maru Gothic',sans-serif;font-size:.88rem;font-weight:700;color:var(--gold);margin-bottom:.4rem}
+.daily-score{font-family:'Kiwi Maru',serif;font-size:1.6rem;font-weight:700;margin-bottom:.35rem;}
 .stars{font-size:.95rem;margin-bottom:.5rem;letter-spacing:.1em}
 .daily-txt{font-size:.75rem;color:var(--dim);line-height:1.65}
 
@@ -403,16 +407,16 @@ select option{background:#fff}
   background:var(--raised);border:1px solid var(--border);
   border-radius:14px;padding:1.8rem;margin-bottom:1.5rem;
   animation:fadeUp .45s ease both;
-  box-shadow:0 2px 12px rgba(192,96,122,.07);
+  box-shadow:0 2px 12px rgba(216,150,160,.07);
 }
 .compat-score-ring{width:110px;height:110px;margin:0 auto 1rem;position:relative;display:flex;align-items:center;justify-content:center;}
 .compat-score-ring svg{position:absolute;inset:0;width:100%;height:100%}
-.compat-pct{font-family:'Philosopher',serif;font-size:1.8rem;font-weight:700;color:var(--gold)}
+.compat-pct{font-family:'Kiwi Maru',serif;font-size:1.8rem;font-weight:700;color:var(--gold)}
 .compat-label{font-size:.7rem;color:var(--dim);text-align:center;margin-bottom:1.5rem}
 .compat-bars{display:flex;flex-direction:column;gap:.75rem}
 .cbar-row{display:grid;grid-template-columns:90px 1fr 36px;align-items:center;gap:.7rem}
 .cbar-name{font-size:.72rem;color:var(--dim);text-align:right}
-.cbar-track{background:rgba(240,192,204,.3);border-radius:4px;height:7px;overflow:hidden}
+.cbar-track{background:rgba(242,214,218,.3);border-radius:4px;height:7px;overflow:hidden}
 .cbar-fill{height:100%;border-radius:4px;transition:width .8s cubic-bezier(.4,0,.2,1)}
 .cbar-pct{font-size:.7rem;color:var(--gold);text-align:right}
 
@@ -423,29 +427,29 @@ select option{background:#fff}
   border-radius:12px;padding:1.3rem;
   display:flex;flex-direction:column;
   animation:fadeUp .4s ease both;
-  box-shadow:0 2px 10px rgba(192,96,122,.06);
+  box-shadow:0 2px 10px rgba(216,150,160,.06);
 }
 .aff-card-badge{display:inline-block;margin-bottom:.6rem;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;padding:.2rem .6rem;border-radius:2rem;}
-.aff-card-name{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:.4rem}
+.aff-card-name{font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;font-weight:700;color:var(--gold);margin-bottom:.4rem}
 .aff-card-desc{font-size:.75rem;color:var(--dim);line-height:1.7;flex:1;margin-bottom:.9rem}
 .aff-card-link{
   display:block;text-align:center;padding:.6rem;
-  background:rgba(192,96,122,.1);border:1px solid rgba(192,96,122,.25);
+  background:rgba(216,150,160,.1);border:1px solid rgba(216,150,160,.25);
   border-radius:8px;color:var(--gold);
   font-size:.72rem;letter-spacing:.07em;
   text-decoration:none;transition:background .2s;
 }
-.aff-card-link:hover{background:rgba(192,96,122,.18)}
+.aff-card-link:hover{background:rgba(216,150,160,.18)}
 
 /* ── AMAZON SECTION ── */
 .amz-section{
   background:var(--card);border:1px solid var(--border);
   border-radius:14px;padding:1.5rem;margin-top:1.5rem;
   position:relative;overflow:hidden;
-  box-shadow:0 2px 12px rgba(192,96,122,.07);
+  box-shadow:0 2px 12px rgba(216,150,160,.07);
 }
-.amz-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#e05070,#d4783a);}
-.amz-heading{font-family:'Cormorant Garamond',serif;font-size:.95rem;font-weight:700;color:var(--gold);margin-bottom:1rem;}
+.amz-section::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--rose),var(--amber));}
+.amz-heading{font-family:'Zen Maru Gothic',sans-serif;font-size:.95rem;font-weight:700;color:var(--gold);margin-bottom:1rem;}
 .amz-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:.9rem}
 .amz-card{
   background:var(--raised);border:1px solid var(--border);
@@ -453,7 +457,7 @@ select option{background:#fff}
   display:flex;flex-direction:column;text-decoration:none;
   transition:border-color .2s,box-shadow .2s;animation:fadeUp .4s ease both;
 }
-.amz-card:hover{border-color:rgba(192,96,122,.4);box-shadow:0 4px 16px rgba(192,96,122,.12)}
+.amz-card:hover{border-color:rgba(216,150,160,.4);box-shadow:0 4px 16px rgba(216,150,160,.12)}
 .amz-icon{font-size:1.5rem;margin-bottom:.5rem}
 .amz-name{font-size:.82rem;font-weight:500;color:var(--text);margin-bottom:.35rem}
 .amz-desc{font-size:.72rem;color:var(--dim);line-height:1.6;flex:1;margin-bottom:.7rem}
@@ -463,33 +467,33 @@ select option{background:#fff}
 /* ── AMAZON SIDEBAR ── */
 .amz-sidebar{background:var(--card);border:1px solid var(--border);border-radius:10px;overflow:hidden;}
 .amz-sidebar-header{
-  background:linear-gradient(135deg,rgba(192,96,122,.12),rgba(212,120,58,.08));
+  background:linear-gradient(135deg,rgba(216,150,160,.12),rgba(212,120,58,.08));
   padding:.65rem 1rem;font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;
   color:var(--gold);border-bottom:1px solid var(--border);
 }
-.amz-sidebar-item{padding:.75rem 1rem;border-bottom:1px solid rgba(240,192,204,.35);text-decoration:none;display:block;transition:background .15s;}
-.amz-sidebar-item:hover{background:rgba(192,96,122,.05)}
+.amz-sidebar-item{padding:.75rem 1rem;border-bottom:1px solid rgba(242,214,218,.35);text-decoration:none;display:block;transition:background .15s;}
+.amz-sidebar-item:hover{background:rgba(216,150,160,.05)}
 .amz-sidebar-item:last-child{border-bottom:none}
 .amz-sidebar-name{font-size:.75rem;color:var(--text);margin-bottom:.2rem}
 .amz-sidebar-desc{font-size:.65rem;color:var(--dim);line-height:1.5}
 .amz-sidebar-cta{display:inline-block;margin-top:.35rem;font-size:.62rem;color:var(--gold)}
 
 .sec-h{
-  font-family:'Philosopher',serif;font-size:.95rem;font-weight:700;
+  font-family:'Kiwi Maru',serif;font-size:.95rem;font-weight:700;
   color:var(--gold);margin-bottom:.9rem;
   padding-bottom:.5rem;border-bottom:1px solid var(--border);
 }
 
 /* ── FEATURES ── */
-.feat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:1.2rem;margin-top:2rem}
+.feat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1.2rem;margin-top:2rem}
 .feat{text-align:center;padding:1.5rem 1rem}
 .feat-icon{font-size:2rem;margin-bottom:.7rem}
-.feat-name{font-family:'Cormorant Garamond',serif;font-size:.9rem;font-weight:700;color:var(--gold);margin-bottom:.4rem}
+.feat-name{font-family:'Zen Maru Gothic',sans-serif;font-size:.9rem;font-weight:700;color:var(--gold);margin-bottom:.4rem}
 .feat-desc{font-size:.75rem;color:var(--dim);line-height:1.7;margin-bottom:.8rem}
 .feat-link{
   display:inline-block;font-size:.72rem;color:var(--gold);
   letter-spacing:.05em;text-decoration:none;
-  border-bottom:1px solid rgba(192,96,122,.3);padding-bottom:.1rem;
+  border-bottom:1px solid rgba(216,150,160,.3);padding-bottom:.1rem;
   transition:color .2s,border-color .2s;cursor:pointer;
 }
 .feat-link:hover{color:var(--rose);border-bottom-color:var(--rose)}
@@ -501,7 +505,7 @@ footer{
   padding:2.5rem 1.5rem 2rem;text-align:center;position:relative;z-index:1;
 }
 .footer-logo{
-  font-family:'Philosopher',serif;font-size:1.1rem;color:var(--gold);margin-bottom:.8rem;
+  font-family:'Kiwi Maru',serif;font-size:1.1rem;color:var(--gold);margin-bottom:.8rem;
 }
 .footer-links{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;margin-bottom:1.2rem}
 .footer-links a{font-size:.7rem;color:var(--faint);text-decoration:none;letter-spacing:.07em;text-transform:uppercase;transition:color .2s}
@@ -521,7 +525,7 @@ footer{
   border-radius:50%;animation:spin 1s linear infinite;
 }
 @keyframes spin{to{transform:rotate(360deg)}}
-.load-txt{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:.95rem;color:var(--gold);letter-spacing:.12em}
+.load-txt{font-family:'Zen Maru Gothic',sans-serif;font-size:.95rem;color:var(--gold);letter-spacing:.12em}
 
 /* ── SECTION VIS ── */
 .tab-section{display:none}
@@ -542,9 +546,11 @@ footer{
   .nav-brand span{display:none}
   .nav-tabs{gap:.1rem}
   .tab-btn{font-size:.68rem;padding:.35rem .55rem}
+  .tab-btn.nav-aff{display:none}
+  .tab-btn{letter-spacing:0}
 
-  .hero{padding:2.8rem .9rem 2.2rem;min-height:240px}
-  .hero h1{font-size:1.75rem}
+  .hero{padding:3.2rem 1rem 2.6rem;min-height:280px}
+  .hero h1{font-size:1.7rem}
   .hero-sub{font-size:.95rem}
   .hero-kicker{font-size:.78rem;letter-spacing:.18em}
   .pill{font-size:.63rem}
@@ -607,18 +613,10 @@ footer{
     <button class="tab-btn active" onclick="scrollToTop()">鑑定</button>
     <button class="tab-btn" onclick="showMain('daily')">今日の運勢</button>
     <button class="tab-btn" onclick="showMain('compat')">相性</button>
-    <button class="tab-btn" onclick="showMain('aff')">おすすめ</button>
+    <a class="tab-btn" href="nakshatra/ashvini.html">図鑑</a>
   </div>
 </nav>
 
-<!-- AdSense Leaderboard 728x90 -->
-<div class="ad-strip">
-  <span class="ad-strip-label">広告</span>
-  <div class="ad-slot-leaderboard">
-    <!-- Google AdSense: data-ad-client="ca-pub-XXXXXXXX" data-ad-slot="XXXXXXXX" data-ad-format="horizontal" -->
-    728×90 リーダーボード広告枠（Google AdSense）
-  </div>
-</div>
 
 <!-- Hero -->
 <div class="hero">
@@ -648,9 +646,6 @@ footer{
   </button>
   <button class="main-tab" data-tab="compat" onclick="switchTab('compat')">
     <span class="tab-icon">💫</span>相性占い
-  </button>
-  <button class="main-tab" data-tab="aff" onclick="switchTab('aff')">
-    <span class="tab-icon">✨</span>おすすめ
   </button>
 </div>
 
@@ -693,18 +688,17 @@ footer{
 
   <div id="birth-result" style="display:none">
     <div style="text-align:center;padding:1.5rem 0 1rem">
-      <div style="font-family:'Philosopher',serif;font-size:1.4rem;color:var(--gold)">✦ あなたの星図 ✦</div>
-      <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--dim);font-size:1rem" id="b-name-disp"></div>
+      <div style="font-family:'Kiwi Maru',serif;font-size:1.4rem;color:var(--gold)">✦ あなたの星図 ✦</div>
+      <div style="font-family:'Zen Maru Gothic',sans-serif;color:var(--dim);font-size:1rem" id="b-name-disp"></div>
     </div>
 
     <!-- Chart -->
     <div style="display:flex;justify-content:center;margin-bottom:1.5rem">
-      <canvas id="chartCanvas" width="300" height="300" style="border-radius:8px"></canvas>
+      <canvas id="chartCanvas" width="300" height="300" style="border-radius:20px;box-shadow:0 6px 24px rgba(216,168,176,.18)"></canvas>
     </div>
 
     <div class="rcard-grid" id="rcard-grid"></div>
 
-    <div class="ad-mid"><!-- AdSense 300×250 Rectangle --> 広告枠（レクタングル 300×250）</div>
 
     <div class="card" style="--top-bar:linear-gradient(90deg,var(--teal),var(--lilac))">
       <div class="sec-h">ジャンマ・ナクシャトラ（月宿）</div>
@@ -722,30 +716,6 @@ footer{
     </div>
 
     <!-- Amazon書籍コーナー（出生ホロスコープ） -->
-    <div class="amz-section">
-      <div class="amz-heading">📚 ヴェーダ占星術をもっと深く知りたい方へ</div>
-      <div class="amz-grid">
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=ヴェーダ占星術&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">📖</div>
-          <div class="amz-name">ヴェーダ占星術 入門書</div>
-          <div class="amz-desc">初心者でもわかりやすいジョーティシュの基礎から実践まで</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=ナクシャトラ+占星術&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">⭐</div>
-          <div class="amz-name">ナクシャトラ 解説書</div>
-          <div class="amz-desc">27の月宿を深く理解するための専門書</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=インド占星術&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">🪐</div>
-          <div class="amz-name">インド占星術 実践書</div>
-          <div class="amz-desc">ホロスコープの読み方・惑星の解釈を詳しく解説</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-      </div>
-      <div class="amz-note">※ Amazonアソシエイトリンクを含みます</div>
-    </div>
 
   </div>
 </div>
@@ -779,42 +749,17 @@ footer{
   <div id="daily-result" style="display:none">
     <div style="text-align:center;padding:1rem 0 1.5rem">
       <div style="font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;color:var(--dim);margin-bottom:.3rem" id="d-date-disp"></div>
-      <div style="font-family:'Philosopher',serif;font-size:1.5rem;font-weight:700;color:var(--gold)">今日の運勢</div>
+      <div style="font-family:'Kiwi Maru',serif;font-size:1.5rem;font-weight:700;color:var(--gold)">今日の運勢</div>
       <div id="d-overall" style="font-size:1.5rem;margin-top:.5rem"></div>
     </div>
     <div class="daily-grid" id="daily-grid"></div>
-    <div class="ad-mid">広告枠（レクタングル 300×250）</div>
 
     <div class="card" style="--top-bar:linear-gradient(90deg,var(--amber),var(--teal))">
       <div class="sec-h">今日のアドバイス</div>
-      <div id="daily-advice" style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--dim);line-height:2;padding:.5rem 0"></div>
+      <div id="daily-advice" style="font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;color:var(--dim);line-height:2;padding:.5rem 0"></div>
     </div>
 
     <!-- Amazon開運グッズコーナー（今日の運勢） -->
-    <div class="amz-section">
-      <div class="amz-heading">🛍️ 運気を高めるアイテム</div>
-      <div class="amz-grid">
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=パワーストーン+開運&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">💎</div>
-          <div class="amz-name">パワーストーン</div>
-          <div class="amz-desc">惑星対応の天然石。グラハ・ストーンで毎日の運気をサポート</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=開運+カレンダー+占星術&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">📅</div>
-          <div class="amz-name">開運カレンダー</div>
-          <div class="amz-desc">吉日・凶日がひと目でわかる占星術カレンダー</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=アロマ+瞑想+インド&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">🕯️</div>
-          <div class="amz-name">瞑想・アロマグッズ</div>
-          <div class="amz-desc">インド伝統のお香・アロマで心を整える毎日の習慣に</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-      </div>
-      <div class="amz-note">※ Amazonアソシエイトリンクを含みます</div>
-    </div>
 
   </div>
 </div>
@@ -873,131 +818,23 @@ footer{
 
     <div class="card" style="--top-bar:linear-gradient(90deg,var(--rose),var(--gold))">
       <div class="sec-h">相性の詳細分析</div>
-      <div id="compat-detail" style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--dim);line-height:2"></div>
+      <div id="compat-detail" style="font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;color:var(--dim);line-height:2"></div>
     </div>
 
-    <div class="ad-mid">広告枠（レクタングル 300×250）</div>
 
     <!-- Amazon恋愛・結婚コーナー（相性占い） -->
-    <div class="amz-section">
-      <div class="amz-heading">💕 相性をさらに深く理解したい方へ</div>
-      <div class="amz-grid">
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=インド占星術+相性+結婚&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">💍</div>
-          <div class="amz-name">相性・結婚鑑定の本</div>
-          <div class="amz-desc">ヴェーダ占星術で読み解く結婚の縁とパートナーシップ</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=恋愛+占星術+本&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">💞</div>
-          <div class="amz-name">恋愛占星術ガイド</div>
-          <div class="amz-desc">星座・惑星から読む恋愛傾向と理想のパートナー像</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-        <a class="amz-card" href="https://www.amazon.co.jp/s?k=カップル+スピリチュアル&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-          <div class="amz-icon">🌹</div>
-          <div class="amz-name">カップル向けスピリチュアル</div>
-          <div class="amz-desc">二人の絆を深めるスピリチュアルな実践ガイド</div>
-          <div class="amz-cta">Amazonで探す →</div>
-        </a>
-      </div>
-      <div class="amz-note">※ Amazonアソシエイトリンクを含みます</div>
-    </div>
 
   </div>
 </div>
 
 <!-- ════ TAB: AFFILIATE ════ -->
-<div class="tab-section" id="tab-aff">
-  <div class="card" style="--top-bar:linear-gradient(90deg,var(--teal),var(--gold))">
-    <div class="card-title">✨ 占い・スピリチュアル おすすめサービス</div>
-    <div class="card-hint">編集部が厳選した、信頼できる占い・スピリチュアル関連サービスです。</div>
-  </div>
-
-  <!-- 電話・チャット占い -->
-  <div class="sec-h" style="margin-top:1.5rem">🔮 電話・チャット占い</div>
-  <div class="aff-grid">
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(200,168,74,.15);color:var(--gold);border:1px solid rgba(200,168,74,.3)">電話占い</span>
-      <div class="aff-card-name">電話占い ヴィーナス</div>
-      <div class="aff-card-desc">インド占星術専門の鑑定士が多数在籍。ヴェーダ占星術歴20年以上のベテランも。初回10分無料キャンペーン中。</div>
-      <!-- ★ A8.net審査通過後にリンクを差し替えてください -->
-      <a class="aff-card-link" href="#" target="_blank" rel="noopener">無料10分を試す →</a>
-    </div>
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(44,184,160,.12);color:var(--teal);border:1px solid rgba(44,184,160,.3)">チャット占い</span>
-      <div class="aff-card-name">チャット占い Luna</div>
-      <div class="aff-card-desc">深夜でも相談できるチャット占い。タロット×ヴェーダ占星術の複合鑑定。評価★4.8 / 5.0（3,200件）。</div>
-      <!-- ★ A8.net審査通過後にリンクを差し替えてください -->
-      <a class="aff-card-link" href="#" target="_blank" rel="noopener">鑑定師一覧を見る →</a>
-    </div>
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(155,138,191,.12);color:var(--lilac);border:1px solid rgba(155,138,191,.3)">メール鑑定</span>
-      <div class="aff-card-name">プロ鑑定師によるメール占い</div>
-      <div class="aff-card-desc">じっくり相談したい方に。72時間以内に詳細なメール鑑定が届きます。</div>
-      <!-- ★ A8.net審査通過後にリンクを差し替えてください -->
-      <a class="aff-card-link" href="#" target="_blank" rel="noopener">詳細を見る →</a>
-    </div>
-  </div>
-
-  <div class="ad-mid" style="margin:1.5rem 0">広告枠（ネイティブ広告）</div>
-
-  <!-- パワーストーン・グッズ -->
-  <div class="sec-h">💎 パワーストーン・開運グッズ</div>
-  <div class="aff-grid">
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(212,120,58,.12);color:var(--amber);border:1px solid rgba(212,120,58,.3)">Amazon</span>
-      <div class="aff-card-name">グラハ・ストーン（惑星対応）</div>
-      <div class="aff-card-desc">9惑星（ナヴァグラハ）対応の天然石アクセサリー。太陽にはルビー、月にはパール、土星にはブルーサファイア。</div>
-      <a class="aff-card-link" href="https://www.amazon.co.jp/s?k=パワーストーン+惑星+天然石&tag=XXXXXXXX-22" target="_blank" rel="noopener">Amazonで探す →</a>
-    </div>
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(212,120,58,.12);color:var(--amber);border:1px solid rgba(212,120,58,.3)">Amazon</span>
-      <div class="aff-card-name">インドお香・アロマ</div>
-      <div class="aff-card-desc">瞑想や鑑定前の空間づくりに。本場インド産のお香・アガルウッド・サンダルウッドなど。</div>
-      <a class="aff-card-link" href="https://www.amazon.co.jp/s?k=インド+お香+瞑想+アロマ&tag=XXXXXXXX-22" target="_blank" rel="noopener">Amazonで探す →</a>
-    </div>
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(212,120,58,.12);color:var(--amber);border:1px solid rgba(212,120,58,.3)">Amazon</span>
-      <div class="aff-card-name">タロット・オラクルカード</div>
-      <div class="aff-card-desc">占星術と合わせて使えるタロット・インスピレーションカード。初心者向けガイドブック付きも。</div>
-      <a class="aff-card-link" href="https://www.amazon.co.jp/s?k=タロットカード+オラクル&tag=XXXXXXXX-22" target="_blank" rel="noopener">Amazonで探す →</a>
-    </div>
-  </div>
-
-  <!-- 書籍・学習 -->
-  <div class="sec-h" style="margin-top:1.5rem">📚 ヴェーダ占星術を学ぶ</div>
-  <div class="aff-grid">
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(200,168,74,.12);color:var(--gold);border:1px solid rgba(200,168,74,.3)">入門</span>
-      <div class="aff-card-name">ヴェーダ占星術 入門書</div>
-      <div class="aff-card-desc">初心者でもわかりやすい、ジョーティシュの基礎から実践まで網羅した一冊。</div>
-      <a class="aff-card-link" href="https://www.amazon.co.jp/s?k=ヴェーダ占星術+入門&tag=XXXXXXXX-22" target="_blank" rel="noopener">Amazonで見る →</a>
-    </div>
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(200,168,74,.12);color:var(--gold);border:1px solid rgba(200,168,74,.3)">中級</span>
-      <div class="aff-card-name">ナクシャトラ 完全解説書</div>
-      <div class="aff-card-desc">27の月宿それぞれの特性・相性・人生テーマを深く掘り下げた専門書。</div>
-      <a class="aff-card-link" href="https://www.amazon.co.jp/s?k=ナクシャトラ+占星術+本&tag=XXXXXXXX-22" target="_blank" rel="noopener">Amazonで見る →</a>
-    </div>
-    <div class="aff-card">
-      <span class="aff-card-badge" style="background:rgba(192,104,120,.12);color:var(--rose);border:1px solid rgba(192,104,120,.3)">講座</span>
-      <div class="aff-card-name">オンライン占星術講座</div>
-      <div class="aff-card-desc">自宅で学べるヴェーダ占星術の通信講座。初心者からプロ鑑定士レベルまで。</div>
-      <!-- ★ A8.net審査通過後にリンクを差し替えてください -->
-      <a class="aff-card-link" href="#" target="_blank" rel="noopener">講座を見る →</a>
-    </div>
-  </div>
-
-  <div class="amz-note" style="margin-top:1rem">※ Amazonリンクはアソシエイトリンクを含みます。A8.netリンクはアフィリエイト広告です。</div>
-</div>
 
 
 <!-- ════ FEATURES (always visible below tabs) ════ -->
 <div id="feat-section" style="margin-top:2rem">
   <div style="text-align:center;padding:2rem 0 1rem">
-    <div style="font-family:'Philosopher',serif;font-size:1.2rem;color:var(--gold)">ジョーティシュとは</div>
-    <div style="font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--dim);font-size:.92rem">「光の学問」— 古代インドの惑星科学</div>
+    <div style="font-family:'Kiwi Maru',serif;font-size:1.2rem;color:var(--gold)">ジョーティシュとは</div>
+    <div style="font-family:'Zen Maru Gothic',sans-serif;color:var(--dim);font-size:.92rem">「光の学問」— 古代インドの惑星科学</div>
   </div>
   <div class="feat-grid">
     <div class="feat">
@@ -1010,7 +847,7 @@ footer{
       <div class="feat-icon">⭐</div>
       <div class="feat-name">27ナクシャトラ</div>
       <div class="feat-desc">月の軌道を27分割した「月宿」。西洋占星術にはない超精密な魂の性質を示します。</div>
-      <a class="feat-link" onclick="switchTab('birth');window.scrollTo({top:0,behavior:'smooth'})">出生鑑定で詳しく見る →</a>
+      <a class="feat-link" href="nakshatra/ashvini.html">ナクシャトラ図鑑を読む →</a>
     </div>
     <div class="feat">
       <div class="feat-icon">🔄</div>
@@ -1030,61 +867,22 @@ footer{
 </div><!-- /main-col -->
 
 <!-- ════ SIDEBAR ════ -->
-<div class="sidebar">
-  <!-- AdSense 160x600 Wide Skyscraper -->
-  <div class="ad-sidebar-slot">
-    <!-- Google AdSense wide skyscraper -->
-    160×600<br>ワイドスカイスクレイパー<br>（AdSense）
-  </div>
-
-  <!-- AdSense 300x250 -->
-  <div class="ad-sidebar-slot" style="min-height:200px">
-    300×250<br>レクタングル広告<br>（AdSense）
-  </div>
-
-  <!-- Amazon サイドバーウィジェット -->
-  <div class="amz-sidebar">
-    <div class="amz-sidebar-header">📚 おすすめ書籍</div>
-    <a class="amz-sidebar-item" href="https://www.amazon.co.jp/s?k=ヴェーダ占星術&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-      <div class="amz-sidebar-name">ヴェーダ占星術 入門</div>
-      <div class="amz-sidebar-desc">ジョーティシュの基礎から実践まで</div>
-      <div class="amz-sidebar-cta">Amazonで見る →</div>
-    </a>
-    <a class="amz-sidebar-item" href="https://www.amazon.co.jp/s?k=パワーストーン+天然石&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-      <div class="amz-sidebar-name">パワーストーン</div>
-      <div class="amz-sidebar-desc">惑星対応の天然石アクセサリー</div>
-      <div class="amz-sidebar-cta">Amazonで見る →</div>
-    </a>
-    <a class="amz-sidebar-item" href="https://www.amazon.co.jp/s?k=タロットカード&tag=XXXXXXXX-22" target="_blank" rel="noopener">
-      <div class="amz-sidebar-name">タロット・オラクルカード</div>
-      <div class="amz-sidebar-desc">占星術と合わせて使えるカード</div>
-      <div class="amz-sidebar-cta">Amazonで見る →</div>
-    </a>
-  </div>
-</div>
 
 </div><!-- /layout -->
 </div><!-- /container -->
 
-<!-- Footer Ad -->
-<div style="padding:.5rem 1.5rem 1rem;position:relative;z-index:1;text-align:center">
-  <div class="ad-mid" style="max-width:728px;margin:0 auto">広告枠（フッター 728×90）</div>
-</div>
 
 <footer>
   <div class="footer-logo">✦ Jyotiṣa — ジョーティシュ占星術</div>
   <div class="footer-links">
     <a href="terms.html">利用規約</a>
     <a href="privacy.html">プライバシーポリシー</a>
-    <a href="#">広告について</a>
     <a href="contact.html">お問い合わせ</a>
-    <a href="#">鑑定士紹介</a>
-    <a href="#">ヴェーダ占星術を学ぶ</a>
+    <a href="nakshatra/ashvini.html">ナクシャトラ図鑑</a>
   </div>
   <div class="footer-note">
-    本サイトの占星術計算はデモ用アルゴリズムによるものです。<br>
-    占い結果は参考情報であり、専門的アドバイスの代替にはなりません。<br>
-    本サイトはGoogle AdSenseおよびアフィリエイト広告を利用しています。
+    本サイトのホロスコープ計算は簡易的な方法による目安です。<br>
+    占い結果は参考情報であり、専門的アドバイスの代替にはなりません。
   </div>
 </footer>
 
@@ -1237,9 +1035,9 @@ function dasha(moonSid,birthDate){
 function drawChart(canvas,pos,ascSign){
   const W=300,H=300,ctx=canvas.getContext('2d');
   ctx.clearRect(0,0,W,H);
-  ctx.fillStyle='#181426';ctx.fillRect(0,0,W,H);
-  ctx.strokeStyle='#c8a84a';ctx.lineWidth=1.5;ctx.strokeRect(3,3,W-6,H-6);
-  ctx.strokeStyle='#2c2342';ctx.lineWidth=1;
+  ctx.fillStyle='#FFF3F0';ctx.fillRect(0,0,W,H);
+  ctx.strokeStyle='#F8A8B0';ctx.lineWidth=1.5;ctx.strokeRect(3,3,W-6,H-6);
+  ctx.strokeStyle='#F2D6DA';ctx.lineWidth=1;
   ctx.beginPath();ctx.moveTo(3,3);ctx.lineTo(W-3,H-3);ctx.moveTo(W-3,3);ctx.lineTo(3,H-3);ctx.stroke();
   ctx.beginPath();ctx.moveTo(W/2,3);ctx.lineTo(W/2,H-3);ctx.moveTo(3,H/2);ctx.lineTo(W-3,H/2);ctx.stroke();
   const keys=['sun','moon','mars','merc','jup','ven','sat','rahu','ketu'];
@@ -1253,11 +1051,11 @@ function drawChart(canvas,pos,ascSign){
   for(let h=0;h<12;h++){
     const sg=(ascSign+h)%12,c=cc[h];
     ctx.font=`${h===0?'bold ':''}9px "Noto Sans JP"`;
-    ctx.fillStyle=h===0?'#c8a84a':'#8a7d6a';ctx.textAlign='center';ctx.textBaseline='middle';
+    ctx.fillStyle=h===0?'#D27A88':'#9A8A8D';ctx.textAlign='center';ctx.textBaseline='middle';
     ctx.fillText(RASI_S[sg],c.x,c.y);
-    if(ha[h].length){ctx.font='11px serif';ctx.fillStyle='#f0d080';ctx.fillText(ha[h].join(''),c.x,c.y+14);}
+    if(ha[h].length){ctx.font='11px serif';ctx.fillStyle='#6B5B5E';ctx.fillText(ha[h].join(''),c.x,c.y+14);}
   }
-  ctx.font='bold 7px "Noto Sans JP"';ctx.fillStyle='#c8a84a';ctx.fillText('Lagna',W/2,H*.09);
+  ctx.font='bold 7px "Zen Maru Gothic"';ctx.fillStyle='#D27A88';ctx.fillText('Lagna',W/2,H*.09);
 }
 
 /* ══════════════════════════════════════
@@ -1372,7 +1170,7 @@ function calcBirth(){
         {i:'🌅',l:'ラグナ（アセンダント）',v:RASIS[ascSign],t:RASI_INTERP.lagna[ascSign],b:'linear-gradient(90deg,#c8a84a,#d4783a)'},
         {i:'☀️',l:'ラーシ（太陽星座）',v:RASIS[sunSign],t:RASI_INTERP.sun[sunSign],b:'linear-gradient(90deg,#d4783a,#f0a030)'},
         {i:'🌙',l:'チャンドラ・ラーシ（月星座）',v:RASIS[moonSign],t:RASI_INTERP.moon[moonSign],b:'linear-gradient(90deg,#6c5ce7,#a29bfe)'},
-        {i:'⭐',l:'ジャンマ・ナクシャトラ',v:`${nkd.n}（第${nk+1}宿 / 第${pd}パーダ）`,t:`支配星: ${nkd.r} ｜ 神: ${nkd.d} ｜ シンボル: ${nkd.s}`,b:'linear-gradient(90deg,#2cb8a0,#55efc4)'},
+        {i:'⭐',l:'ジャンマ・ナクシャトラ',v:`${nkd.n}（第${nk+1}宿 / 第${pd}パーダ）`,t:`支配星: ${nkd.r} ｜ 神: ${nkd.d} ｜ シンボル: ${nkd.s}`,b:'linear-gradient(90deg,var(--lilac),var(--rose))'},
         {i:'♃',l:'木星（グル）の位置',v:RASIS[rasi(pos.jup)],t:RASI_INTERP.jupiter[rasi(pos.jup)],b:'linear-gradient(90deg,#fdcb6e,#e17055)'},
         {i:'♄',l:'土星（シャニ）の位置',v:RASIS[rasi(pos.sat)],t:RASI_INTERP.saturn[rasi(pos.sat)],b:'linear-gradient(90deg,#636e72,#b2bec3)'}
       ];
@@ -1387,11 +1185,11 @@ function calcBirth(){
 
       // Nakshatra detail
       document.getElementById('nk-detail').innerHTML=`
-        <div style="background:rgba(44,184,160,.07);border:1px solid rgba(44,184,160,.2);border-radius:8px;padding:1.2rem">
-          <div style="font-family:'Philosopher',serif;color:#2cb8a0;font-size:.95rem;margin-bottom:.7rem">${nkd.n} ナクシャトラ</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:1rem;color:var(--dim);line-height:1.95">${nkd.q}</div>
+        <div style="background:#fff;border:1px solid var(--border);border-radius:18px;padding:1.4rem">
+          <div style="font-family:'Kiwi Maru',serif;color:var(--gold);font-size:.95rem;margin-bottom:.7rem">${nkd.n} ナクシャトラ</div>
+          <div style="font-family:'Zen Maru Gothic',sans-serif;font-size:1rem;color:var(--dim);line-height:1.95">${nkd.q}</div>
           <div style="display:flex;flex-wrap:wrap;gap:.8rem;margin-top:.9rem">
-            ${['支配惑星:'+nkd.r,'主神:'+nkd.d,'シンボル:'+nkd.s,'第'+pd+'パーダ'].map(x=>`<span style="font-size:.7rem;color:var(--faint)">${x.split(':')[0]}: <span style="color:var(--gold)">${x.split(':')[1]}</span></span>`).join('')}
+            ${['支配惑星:'+nkd.r,'主神:'+nkd.d,'シンボル:'+nkd.s,'パーダ:第'+pd+'パーダ'].map(x=>`<span style="font-size:.7rem;color:var(--faint)">${x.split(':')[0]}: <span style="color:var(--gold)">${x.split(':')[1]}</span></span>`).join('')}
           </div>
         </div>`;
 
