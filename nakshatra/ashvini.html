@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>アシュヴィニー（Ashvini）｜夜明けの癒し手 - ムーンアンドサン工房</title>
+<meta name="description" content="27ナクシャトラの最初の星宿アシュヴィニー。支配星ケートゥ、神格アシュヴィニー双神。名前の由来、太陽と馬の神話、4つのパダ、宿曜道とのつながりまで、やさしく深く解説します。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Maru+Gothic:wght@400;500;700&family=Kiwi+Maru:wght@400;500&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ムーンアンドサン工房｜ナクシャトラ図鑑 共通テンプレート
+   ------------------------------------------------------------
+   ◆ 使い方：残り26宿は、下の「テーマトークン」だけ差し替えれば
+     世界観を保ったまま量産できます。
+   ◆ アシュヴィニーのテーマ：夜明けのコーラルピンク
+     （黄道のはじまり＝朝焼けのイメージ）
+   ============================================================ */
+
+:root {
+  /* --- テーマトークン（宿ごとに差し替える部分）--- */
+  --nk-main:   #F8A8B0;   /* 宿のテーマカラー（濃） */
+  --nk-soft:   #FDE3E6;   /* 宿のテーマカラー（淡）カード背景など */
+  --nk-mist:   #FFF3F0;   /* さらに淡い面 */
+  --nk-accent: #C9B6E4;   /* 差し色（ラベンダー系で統一推奨） */
+  --nk-sky-a:  #FFE9E3;   /* ヒーローグラデ上 */
+  --nk-sky-b:  #FFF6EC;   /* ヒーローグラデ中 */
+  --nk-sky-c:  #F3ECFA;   /* ヒーローグラデ下 */
+
+  /* --- サイト共通トークン（全27宿で固定）--- */
+  --ink:       #6B5B5E;   /* 本文。真っ黒を使わない＝ふんわりの要 */
+  --ink-soft:  #8F7B7F;   /* 補足文字（トップの --dim と同じ） */
+  --accent-ink:#D27A88;   /* 見出し色（トップの --gold と同じ） */
+  --deep-ink:  #A8646F;   /* 強調（トップの --gold3 と同じ） */
+  --label-ink: #C9B6E4;   /* 小ラベル（トップの --lilac と同じ） */
+  --paper:     #FFFDFB;
+  --line:      #F2E4E6;
+  --radius-l:  28px;
+  --radius-m:  18px;
+  --shadow:    0 6px 24px rgba(216, 168, 176, 0.18);
+  --font-disp: "Kiwi Maru", serif;
+  --font-body: "Zen Maru Gothic", sans-serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  color: var(--ink);
+  background: var(--paper);
+  line-height: 2.0;
+  letter-spacing: 0.04em;
+  font-size: 16px;
+}
+
+/* ---------- ヒーロー：夜明けの空 ---------- */
+.hero {
+  background: linear-gradient(180deg, var(--nk-sky-a) 0%, var(--nk-sky-b) 55%, var(--nk-sky-c) 100%);
+  padding: 72px 20px 96px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+.hero-star {
+  position: absolute;
+  color: #fff;
+  opacity: .8;
+  animation: twinkle 4s ease-in-out infinite;
+  user-select: none;
+}
+@keyframes twinkle { 0%,100%{opacity:.35} 50%{opacity:.9} }
+@media (prefers-reduced-motion: reduce) { .hero-star { animation: none; } }
+
+.hero-eyebrow {
+  display: inline-block;
+  background: #fff;
+  color: var(--ink-soft);
+  font-size: 12px;
+  padding: 6px 18px;
+  border-radius: 999px;
+  box-shadow: var(--shadow);
+  margin-bottom: 22px;
+}
+.hero-symbol { font-size: 56px; line-height: 1; margin-bottom: 14px; }
+
+/* ---------- 宿のバナー画像（額縁風）---------- */
+.nk-banner {
+  margin: -60px 0 0;
+  position: relative;
+  border-radius: var(--radius-l);
+  padding: 10px;
+  background: #fff;
+  box-shadow: var(--shadow);
+}
+.nk-banner img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1408 / 768;
+  border-radius: 20px;
+}
+.nk-banner figcaption {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 10px 0 2px;
+  letter-spacing: .08em;
+}
+.hero h1 {
+  font-family: var(--font-disp);
+  font-size: clamp(28px, 6vw, 40px);
+  font-weight: 500;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+.hero .romaji {
+  font-size: 13px;
+  letter-spacing: 0.35em;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.hero-lead { max-width: 34em; margin: 0 auto; font-size: 15px; color: var(--ink); }
+
+/* ---------- レイアウト ---------- */
+.wrap { max-width: 760px; margin: 0 auto; padding: 0 20px; }
+section { margin: 64px 0; }
+
+h2 {
+  font-family: var(--font-disp);
+  font-weight: 500;
+  color: var(--accent-ink);
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 8px;
+}
+.h2-sub {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  letter-spacing: 0.2em;
+  margin-bottom: 28px;
+}
+h2 .dot { color: var(--nk-main); }
+.matome p:first-of-type { font-family: var(--font-disp); font-size: 17px; color: var(--deep-ink); }
+
+/* ---------- 基本データカード ---------- */
+.data-card {
+  background: var(--nk-mist);
+  border-radius: var(--radius-l);
+  padding: 28px 24px;
+  margin-top: 40px;
+  position: relative;
+  box-shadow: var(--shadow);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 14px;
+}
+.data-item { background: #fff; border-radius: var(--radius-m); padding: 14px 16px; text-align: center; }
+.data-item dt { font-size: 11px; color: var(--label-ink); margin-bottom: 2px; letter-spacing: .1em; }
+.data-item dd { font-size: 14px; font-weight: 700; color: var(--deep-ink); }
+
+/* ---------- 本文・吹き出し ---------- */
+.prose p { margin-bottom: 1.4em; }
+.prose strong { font-weight: 700; color: var(--deep-ink); background: linear-gradient(transparent 62%, var(--nk-soft) 62%); }
+
+.fukidashi {
+  background: var(--nk-soft);
+  border-radius: var(--radius-l);
+  padding: 22px 26px;
+  position: relative;
+  margin: 28px 0;
+  font-size: 15px;
+}
+.fukidashi::before {
+  content: "";
+  position: absolute;
+  top: -10px; left: 40px;
+  border: 10px solid transparent;
+  border-bottom-color: var(--nk-soft);
+  border-top: 0;
+}
+.fukidashi .label { font-size: 11px; color: var(--accent-ink); font-weight: 700; display: block; margin-bottom: 4px; }
+
+/* ---------- パダ4区分カード ---------- */
+.pada-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; }
+.pada-card {
+  background: #fff;
+  border: 2px solid var(--line);
+  border-top: 6px solid var(--nk-main);
+  border-radius: var(--radius-m);
+  padding: 18px 16px;
+}
+.pada-card h3 { font-size: 15px; margin-bottom: 4px; color: var(--accent-ink); }
+.pada-card .navamsa { font-size: 11px; color: var(--ink-soft); margin-bottom: 8px; display: block; }
+.pada-card p { font-size: 13px; line-height: 1.9; }
+
+/* ---------- 宿曜コラム（独自コンテンツ枠）---------- */
+.sukuyo {
+  background: linear-gradient(135deg, var(--nk-mist), #F6F0FB);
+  border-radius: var(--radius-l);
+  padding: 30px 26px;
+  box-shadow: var(--shadow);
+}
+.sukuyo h2 { margin-bottom: 16px; }
+.sukuyo p { font-size: 15px; margin-bottom: 1.2em; }
+
+/* ---------- やさしいまとめ ---------- */
+.matome { text-align: center; background: var(--nk-soft); border-radius: var(--radius-l); padding: 34px 24px; }
+.matome p { font-size: 15px; max-width: 30em; margin: 0 auto 1em; }
+
+/* ---------- ナビ・フッター ---------- */
+.nk-nav { display: flex; justify-content: space-between; gap: 12px; margin: 56px 0 40px; }
+.nk-nav a, .nk-nav span {
+  flex: 1;
+  text-align: center;
+  border-radius: 999px;
+  padding: 12px 10px;
+  font-size: 13px;
+}
+.nk-nav a {
+  background: #fff;
+  border: 2px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: background .2s;
+}
+.nk-nav span { border: 2px dashed var(--line); color: var(--ink-soft); }
+.nk-nav a:hover, .nk-nav a:focus-visible { background: var(--nk-mist); }
+.nk-nav a:focus-visible { outline: 2px solid var(--nk-main); outline-offset: 2px; }
+
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: var(--ink-soft);
+  padding: 36px 20px 48px;
+  background: var(--nk-sky-c);
+  margin-top: 80px;
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <span class="hero-star" style="top:18%; left:12%; font-size:14px;">✦</span>
+  <span class="hero-star" style="top:30%; right:15%; font-size:10px; animation-delay:1.2s;">✧</span>
+  <span class="hero-star" style="top:12%; right:32%; font-size:12px; animation-delay:2.1s;">✦</span>
+  <span class="hero-star" style="bottom:26%; left:22%; font-size:10px; animation-delay:.6s;">✧</span>
+
+  <span class="hero-eyebrow">ナクシャトラ図鑑 1 / 27</span>
+  <h1>アシュヴィニー</h1>
+  <p class="romaji">Ashvini</p>
+  <p class="hero-lead">
+    黄道のいちばんはじまりに位置する、夜明けの星宿。<br>
+    疲れた心と体に、すっと風を通してくれる「癒し手」の星です。
+  </p>
+</header>
+
+<div class="wrap">
+
+  <figure class="nk-banner">
+    <img src="img/ashvini.webp"
+         srcset="img/ashvini-sm.webp 704w, img/ashvini.webp 1408w"
+         sizes="(max-width: 760px) 100vw, 720px"
+         width="1408" height="768"
+         alt="向かい合って駆けるアシュヴィニー双神の2頭の馬と、薬草を手にした神々のパステル調の細密画">
+    <figcaption>向かい合う二頭の馬 ―― 神々の医師、アシュヴィニー双神</figcaption>
+  </figure>
+
+  <dl class="data-card">
+    <div class="data-item"><dt>支配星</dt><dd>ケートゥ</dd></div>
+    <div class="data-item"><dt>神格</dt><dd>アシュヴィニー双神</dd></div>
+    <div class="data-item"><dt>シンボル</dt><dd>馬の頭</dd></div>
+    <div class="data-item"><dt>範囲</dt><dd>牡羊座 0°00′–13°20′</dd></div>
+    <div class="data-item"><dt>ガナ（気質）</dt><dd>デーヴァ（神性）</dd></div>
+    <div class="data-item"><dt>キーワード</dt><dd>はじまり・癒し・スピード</dd></div>
+  </dl>
+
+  <section class="prose">
+    <h2>どんな星宿？<span class="dot">.</span></h2>
+    <p class="h2-sub">STORY & MYTH</p>
+    <p>
+      「アシュヴィニー」は、サンスクリット語の<strong>アシュヴァ（馬）</strong>から生まれた名前。
+      「馬をもつもの」という意味で、牡羊座の頭にあたる星々を、古代インドの人々は馬の頭に見立てました。
+    </p>
+    <p>
+      神格は、馬を駆る双子の神さま「アシュヴィニー・クマーラ」。
+      その誕生には、こんな物語があります。太陽神スーリヤの妻サラニユーは、夫のまぶしすぎる光に疲れ、
+      雌馬の姿になって遠くへ身を隠しました。スーリヤは雄馬となって彼女を追い、
+      ふたりのあいだに生まれたのがこの双神です。<strong>太陽と馬の子ども</strong>、それがアシュヴィニーなのです。
+    </p>
+    <p>
+      双神は神々のお医者さまとして知られ、夜明けの女神ウシャスよりも先に黄金の馬車で駆けつけ、
+      傷ついた者を癒したと伝えられています。古代インドでいちばん速かった馬は、
+      「誰よりも早く、痛みのそばへ」という、この宿の優しさの象徴でもあります。
+    </p>
+    <p>
+      27あるナクシャトラの先頭に立つこの宿は、「はじまり」そのもの。
+      新しいことをためらわずに始める勇気、そして誰かの痛みにいち早く気づいて駆け寄る優しさ。
+      その両方を併せもつのが、アシュヴィニーの魅力です。
+    </p>
+    <div class="fukidashi">
+      <span class="label">つかれた日のアシュヴィニー処方箋</span>
+      迷っていることがあるなら、「小さく始めてみる」のがこの宿の癒し方。
+      完璧な準備より、朝の空気を吸いこむような軽やかな一歩が、心をほどいてくれます。
+    </div>
+  </section>
+
+  <section>
+    <h2>4つのパダ<span class="dot">.</span></h2>
+    <p class="h2-sub">PADA — こまかな個性のちがい</p>
+    <div class="pada-grid">
+      <article class="pada-card">
+        <h3>第1パダ</h3>
+        <span class="navamsa">ナヴァームシャ：牡羊座（火星）</span>
+        <p>開拓者タイプ。思い立ったら即行動、スピード感はナクシャトラ随一です。</p>
+      </article>
+      <article class="pada-card">
+        <h3>第2パダ</h3>
+        <span class="navamsa">ナヴァームシャ：牡牛座（金星）</span>
+        <p>行動力に美意識と現実感覚が加わり、はじめたことを形にできる人。</p>
+      </article>
+      <article class="pada-card">
+        <h3>第3パダ</h3>
+        <span class="navamsa">ナヴァームシャ：双子座（水星）</span>
+        <p>軽やかな知性派。言葉や情報で人を癒す、コミュニケーションの才能。</p>
+      </article>
+      <article class="pada-card">
+        <h3>第4パダ</h3>
+        <span class="navamsa">ナヴァームシャ：蟹座（月）</span>
+        <p>癒し手の性質がもっとも豊かに。共感力が高く、ケアの仕事に向きます。</p>
+      </article>
+    </div>
+  </section>
+
+  <section class="sukuyo">
+    <h2>宿曜道とのつながり<span class="dot">.</span></h2>
+    <p>
+      アシュヴィニーは、空海が唐から持ち帰った『宿曜経』では「婁宿（ろうしゅく）」にあたるとされます。
+      インドで生まれた27宿の智慧が、密教とともに日本へ渡ってきた——
+      そう思うと、遠いヴェーダの星が少し身近に感じられませんか。
+    </p>
+    <p>
+      当サイトでは、こうした「ジョーティッシュと日本の宿曜道」の橋渡しも、
+      すこしずつ深掘りしていきます。
+    </p>
+  </section>
+
+  <section class="matome">
+    <h2>きょうのおまもりことば<span class="dot">.</span></h2>
+    <p>「はやく着くことより、軽やかに走り出すこと。」</p>
+    <p>
+      アシュヴィニーの馬は、誰かを癒すために走ります。
+      あなたの新しい一歩も、きっと誰かの夜明けになりますように。
+    </p>
+  </section>
+
+  <nav class="nk-nav" aria-label="ナクシャトラ間の移動">
+    <a href="../index.html">トップへ</a>
+    <span>つぎの宿：バラニー（準備中）</span>
+  </nav>
+
+</div>
+
+<footer>
+  ムーンアンドサン工房｜ジョーティッシュ（インド占星術）<br>
+  27ナクシャトラをやさしく、ふかく。
+</footer>
+
+</body>
+</html>
