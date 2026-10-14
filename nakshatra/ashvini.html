@@ -150,13 +150,14 @@ h2 .dot { color: var(--nk-main); }
   background: var(--nk-mist);
   border-radius: var(--radius-l);
   padding: 28px 24px;
-  margin-top: 40px;
+  margin-top: -52px;               /* 画像がない宿は空にふわっと重なる */
   position: relative;
   box-shadow: var(--shadow);
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   gap: 14px;
 }
+.nk-banner + .data-card { margin-top: 40px; }   /* 画像がある宿 */
 .data-item { background: #fff; border-radius: var(--radius-m); padding: 14px 16px; text-align: center; }
 .data-item dt { font-size: 11px; color: var(--label-ink); margin-bottom: 2px; letter-spacing: .1em; }
 .data-item dd { font-size: 14px; font-weight: 700; color: var(--deep-ink); }
@@ -211,7 +212,9 @@ h2 .dot { color: var(--nk-main); }
 .matome p { font-size: 15px; max-width: 30em; margin: 0 auto 1em; }
 
 /* ---------- ナビ・フッター ---------- */
-.nk-nav { display: flex; justify-content: space-between; gap: 12px; margin: 56px 0 40px; }
+.nk-nav { display: flex; justify-content: space-between; gap: 12px; margin: 56px 0 14px; }
+.nk-top { text-align: center; margin-bottom: 40px; font-size: 13px; }
+.nk-top a { color: var(--ink-soft); }
 .nk-nav a, .nk-nav span {
   flex: 1;
   text-align: center;
@@ -357,9 +360,10 @@ footer {
   </section>
 
   <nav class="nk-nav" aria-label="ナクシャトラ間の移動">
-    <a href="../index.html">トップへ</a>
-    <span>つぎの宿：バラニー（準備中）</span>
+    <span>はじまりの宿</span>
+    <a href="bharani.html">つぎの宿：バラニー →</a>
   </nav>
+  <p class="nk-top"><a href="../index.html">サイトのトップへもどる</a></p>
 
 </div>
 
